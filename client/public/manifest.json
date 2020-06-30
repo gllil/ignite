@@ -1,0 +1,9 @@
+{
+  "short_name": "Ignite Devs",
+  "name": "Ignite Developers",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
