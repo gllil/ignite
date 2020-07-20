@@ -1,0 +1,7 @@
+.serviceSection {
+  animation: slideInRight;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  width: 100%;
+  margin-top: 60px;
+}
