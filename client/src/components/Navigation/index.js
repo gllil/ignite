@@ -18,6 +18,7 @@ import {
   ListItemText,
   Hidden,
   Drawer,
+  Grid,
 } from "@material-ui/core";
 import ImageLogo from "../../assets/images/mainLogo.png";
 import {
@@ -49,7 +50,9 @@ const Navigation = (props) => {
     },
     phone: {
       color: "#e78200",
-      textAlign: "center",
+      [theme.breakpoints.down("xs")]: {
+        display: "none",
+      },
     },
     drawer: {
       [theme.breakpoints.up("lg")]: {
@@ -57,11 +60,10 @@ const Navigation = (props) => {
         flexShrink: 0,
       },
     },
-    appBar: {
-      // [theme.breakpoints.up("lg")]: {
-      //   width: `calc(100% - ${drawerWidth}px)`,
-      //   marginRight: drawerWidth,
-      // },
+    navBar: {
+      [theme.breakpoints.down("xs")]: {
+        textAlign: "center",
+      },
     },
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
@@ -73,6 +75,12 @@ const Navigation = (props) => {
     },
     contactUs: {
       backgroundImage: "#2EC4B6",
+    },
+    socialMedia: {
+      marginTop: "5px",
+      [theme.breakpoints.down("xs")]: {
+        display: "none",
+      },
     },
   }));
 
@@ -192,15 +200,45 @@ const Navigation = (props) => {
       <HideOnScroll {...props}>
         <StyleAppBar position="fixed" className={classes.appBar}>
           <Container>
-            <Toolbar>
+            <Toolbar className={classes.navBar}>
               <img src={ImageLogo} width="80px" alt="Ignite Developers" />
               <Typography variant="h4" className={classes.title}>
                 IgniteDev
               </Typography>
-              <Typography className={classes.phone}>
-                Call Us @ (407) 555-5555
-              </Typography>
-              <IconButton
+              <Grid item container xs={6} direction="row" alignItems="flex-end">
+                <Grid item container xs={12} justify="flex-end">
+                  <Grid item xs={6} textAlign="right">
+                    <Typography align="right" className={classes.phone}>
+                      Call Us @ (407) 555-5555
+                    </Typography>
+                  </Grid>
+                </Grid>
+                <Grid item container xs={12} justify="flex-end">
+                  <Grid
+                    item
+                    container
+                    xs={6}
+                    sm={8}
+                    md={4}
+                    justify="flex-end"
+                    className={classes.socialMedia}
+                    spacing={1}
+                  >
+                    <Grid item xs={6} />
+                    <Grid item xs={2}>
+                      <Facebook style={{ color: "#333" }} />
+                    </Grid>
+                    <Grid item xs={2}>
+                      <Twitter style={{ color: "#333" }} />
+                    </Grid>
+                    <Grid item xs={2}>
+                      <LinkedIn style={{ color: "#333" }} />
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+
+              {/* <IconButton
                 edge="end"
                 className={classes.menuButton}
                 color="dark"
@@ -208,7 +246,7 @@ const Navigation = (props) => {
                 onClick={handleDrawerToggle}
               >
                 <MenuIcon />
-              </IconButton>
+              </IconButton> */}
             </Toolbar>
           </Container>
         </StyleAppBar>

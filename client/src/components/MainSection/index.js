@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Button } from "@material-ui/core";
+import { Paper, Button, Typography, Grid } from "@material-ui/core";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import background from "../../assets/images/background3.jpg";
 import "./mainSection.css";
@@ -18,6 +18,8 @@ const MainSection = () => {
       backgroundSize: "cover",
       background: "center center",
       padding: "20px",
+
+      width: "100%",
     },
     title: {
       color: "#ffffff",
@@ -25,25 +27,31 @@ const MainSection = () => {
     },
     paragraph: {
       color: "#ffffff",
-      width: "50%",
       margin: "30px 0px",
       fontSize: "15pt",
     },
   }));
   const classes = useStyles();
   return (
-    <div className="mainSection">
+    <Grid container xs={12}>
       <Paper className={classes.paper}>
-        <h1 className={classes.title}>Web Design Easy And Beautiful</h1>
-        <p className={classes.paragraph}>
-          People friendly Nerds that listen. We'll help you make your online
-          presence professional and marketable.
-        </p>
-        <StyleButton size="large" variant="contained">
-          Free Consultation
-        </StyleButton>
+        <Grid item xs={6}>
+          <Typography variant="h2" className={classes.title}>
+            Easy And Beautiful Web Design
+          </Typography>
+
+          <Typography variant="p" className={classes.paragraph}>
+            People friendly Nerds that listen. We'll help you make your online
+            presence professional and marketable.
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <StyleButton size="large" variant="contained" href="#contact-form">
+            Free Consultation
+          </StyleButton>
+        </Grid>
       </Paper>
-    </div>
+    </Grid>
   );
 };
 

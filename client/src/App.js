@@ -11,17 +11,17 @@ function App() {
     <div className="App">
       <Navigation />
       <Container>
-        <Grid container>
-          <Grid xs={12}>
-            <MainSection />
-          </Grid>
+        {/* <Grid container>
+          <Grid xs={12}> */}
+        <MainSection />
+        {/* </Grid>
         </Grid>
-        <Grid container>
-          <ServiceSection />
-        </Grid>
-        <Grid container>
-          <ContactForm />
-        </Grid>
+        <Grid container> */}
+        <ServiceSection />
+        {/* </Grid>
+        <Grid container> */}
+        <ContactForm />
+        {/* </Grid> */}
       </Container>
     </div>
   );

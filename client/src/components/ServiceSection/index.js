@@ -1,19 +1,22 @@
 import React from "react";
 import { makeStyles, withStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
-import { ExpandMore } from "@material-ui/icons";
-import { Paper, Avatar } from "@material-ui/core";
+import { Paper, Grid } from "@material-ui/core";
 import background from "../../assets/images/background2.jpg";
 import design from "../../assets/images/design.png";
 import design2 from "../../assets/images/design2.png";
+import design3 from "../../assets/images/design3.jpg";
+import design4 from "../../assets/images/design4.jpg";
 import googleMaps from "../../assets/images/googleMaps.png";
 import googleAds from "../../assets/images/googleAds.png";
+
 import "./serviceSection.css";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    marginTop: "60px",
+  },
   heading: {
     fontSize: theme.typography.pxToRem(18),
     fontWeight: theme.typography.fontWeightBold,
@@ -30,6 +33,80 @@ const useStyles = makeStyles((theme) => ({
     color: "#ffffff",
     textAlign: "left",
   },
+  services: {
+    marginTop: "10px",
+    marginRight: "0px",
+    marginLeft: "8px",
+    alignItems: "center",
+    width: "100%",
+  },
+  serviceItem1: {
+    height: "100%",
+    backgroundImage: `url(${design3})`,
+    backgroundColor: "rgba(5,5,5,0.7)",
+    backgroundBlendMode: "multiply",
+    backgroundSize: "cover",
+    background: "center",
+    transition: theme.transitions.create(["backgroundImage"], {
+      duration: theme.transitions.duration.standard,
+    }),
+    "&:hover": {
+      backgroundImage: "linear-gradient(top,  #333, #e78200)",
+    },
+  },
+  serviceItem2: {
+    height: "100%",
+    backgroundImage: `url(${design4})`,
+    backgroundColor: "rgba(5,5,5,0.7)",
+    backgroundBlendMode: "multiply",
+    backgroundSize: "cover",
+    background: "center center",
+    transition: theme.transitions.create(["backgroundImage"], {
+      duration: theme.transitions.duration.standard,
+    }),
+    "&:hover": {
+      backgroundImage: "linear-gradient(top,  #333, #e78200)",
+    },
+  },
+  serviceItem3: {
+    height: "100%",
+    backgroundImage: `url(${googleMaps})`,
+    backgroundColor: "rgba(5,5,5,0.7)",
+    backgroundBlendMode: "multiply",
+    backgroundSize: "cover",
+    background: "center",
+    transition: theme.transitions.create(["backgroundImage"], {
+      duration: theme.transitions.duration.standard,
+    }),
+    "&:hover": {
+      backgroundImage: "linear-gradient(top,  #333, #e78200)",
+    },
+  },
+  serviceItem4: {
+    height: "100%",
+    backgroundImage: `url(${googleAds})`,
+    backgroundColor: "rgba(5,5,5,0.7)",
+    backgroundBlendMode: "multiply",
+    backgroundSize: "cover",
+    background: "center",
+    transition: theme.transitions.create(["backgroundImage"], {
+      duration: theme.transitions.duration.standard,
+    }),
+    "&:hover": {
+      backgroundImage: "linear-gradient(top,  #333, #e78200)",
+    },
+  },
+  serviceItemTitle: {
+    color: "#fff",
+    padding: "10px",
+    textAlign: "center",
+  },
+  serviceDescription: {
+    padding: "10px",
+    margin: "5px",
+    textAlign: "center",
+    color: "#fff",
+  },
 }));
 
 const StylePaper = withStyles({
@@ -43,76 +120,104 @@ const ServiceSection = () => {
   const classes = useStyles();
 
   return (
-    <div className="serviceSection">
+    <div className={classes.root}>
       <StylePaper className={classes.paper}>
-        <h1 className={classes.title}>Our Services</h1>
+        <Typography variant="h4" className={classes.title}>
+          Our Services
+        </Typography>
       </StylePaper>
-      <Accordion className={classes.accordion}>
-        <AccordionSummary
-          expandIcon={<ExpandMore />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Avatar alt="design" src={design} />
-          <Typography className={classes.heading}>
-            Web Design and Development
-          </Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion className={classes.accordion}>
-        <AccordionSummary
-          expandIcon={<ExpandMore />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Avatar alt="redesign" src={design2} />
-          <Typography className={classes.heading}>Web Redesign</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion className={classes.accordion}>
-        <AccordionSummary
-          expandIcon={<ExpandMore />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Avatar alt="maps SEO" src={googleMaps} />
-          <Typography className={classes.heading}>Local SEO</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion className={classes.accordion}>
-        <AccordionSummary
-          expandIcon={<ExpandMore />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Avatar alt="Google Ads" src={googleAds} variant="rounded" />
-          <Typography className={classes.heading}>Google Ads</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+      <div className={classes.services}>
+        <Grid container xs={12} spacing={2} justify="space-between">
+          <Grid item xs={12} sm={3} alignContent="center" justify="center">
+            <Paper className={classes.serviceItem1}>
+              <Grid container direction="row">
+                <Grid item xs={12}>
+                  <Typography variant="h4" className={classes.serviceItemTitle}>
+                    Web Design and Development
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography
+                    paragraph
+                    variant="h6"
+                    className={classes.serviceDescription}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <Paper className={classes.serviceItem2}>
+              <Grid container direction="row">
+                <Grid item xs={12}>
+                  <Typography variant="h4" className={classes.serviceItemTitle}>
+                    Web Redesign
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography
+                    paragraph
+                    variant="h6"
+                    className={classes.serviceDescription}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <Paper className={classes.serviceItem3}>
+              <Grid container direction="row">
+                <Grid item xs={12}>
+                  <Typography variant="h4" className={classes.serviceItemTitle}>
+                    Local SEO
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography
+                    paragraph
+                    variant="h6"
+                    className={classes.serviceDescription}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} sm={3}>
+            <Paper className={classes.serviceItem4}>
+              <Grid container direction="row">
+                <Grid item xs={12}>
+                  <Typography variant="h4" className={classes.serviceItemTitle}>
+                    Google Ads
+                  </Typography>
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography
+                    paragraph
+                    variant="h6"
+                    className={classes.serviceDescription}
+                  >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Grid>
+        </Grid>
+      </div>
     </div>
   );
 };
